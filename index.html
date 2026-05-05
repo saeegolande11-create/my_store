@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourKart - Online Book Store</title>
+    <meta name="description" content="Shop online at YourKart Books for premium titles.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="logo.png" alt="YourKart" class="site-logo">
+                    <h2>Your<span>Kart</span></h2>
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for books...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="login-btn">Login</button>
+                <a href="#" class="nav-link cart-link" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i> Cart 
+                    <span class="cart-badge" id="cart-badge" style="display:none;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Categories Menu -->
+        <section class="categories-menu">
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=150&q=80" alt="Fiction">
+                <p>Fiction</p>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=150&q=80" alt="Non-Fiction">
+                <p>Non-Fiction</p>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=150&q=80" alt="Educational">
+                <p>Educational</p>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1553484771-047a44eee27b?auto=format&fit=crop&w=150&q=80" alt="Biography">
+                <p>Biography</p>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=150&q=80" alt="Science">
+                <p>Science</p>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?auto=format&fit=crop&w=150&q=80" alt="Fantasy">
+                <p>Fantasy</p>
+            </div>
+            <div class="cat-item">
+                <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&w=150&q=80" alt="Self Help">
+                <p>Self-Help</p>
+            </div>
+        </section>
+
+        <!-- Hero Carousel -->
+        <section class="hero-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&h=400&q=80" alt="Book Sale Banner">
+                    <div class="carousel-content">
+                        <h2>Big Book Sale</h2>
+                        <p>Up to 80% Off on Bestsellers & Classics</p>
+                        <button class="shop-now-btn">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+        </section>
+
+        <!-- Dynamic Product Catalog -->
+        <section class="catalog-section">
+            <div class="catalog-container">
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <div class="filter-group filter-header">
+                        <h3>Filters</h3>
+                        <button id="clear-filters" class="clear-btn">Clear All</button>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Categories</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" value="Fiction" class="category-filter"> Fiction</label>
+                            <label><input type="checkbox" value="Non-Fiction" class="category-filter"> Non-Fiction</label>
+                            <label><input type="checkbox" value="Educational" class="category-filter"> Educational</label>
+                            <label><input type="checkbox" value="Biography" class="category-filter"> Biography</label>
+                            <label><input type="checkbox" value="Science" class="category-filter"> Science</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <div class="price-slider-container">
+                            <input type="range" id="price-range" min="0" max="5000" step="100" value="5000">
+                            <div class="price-labels">
+                                <span>₹0</span>
+                                <span id="price-display">₹5,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Customer Ratings</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" value="4" class="rating-filter"> 4★ & above</label>
+                            <label><input type="checkbox" value="3" class="rating-filter"> 3★ & above</label>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- Main Product Grid -->
+                <div class="product-area">
+                    <div class="product-area-header">
+                        <h2>All Products <span id="product-count">(0)</span></h2>
+                        <div class="sort-by">
+                            <label>Sort By:</label>
+                            <select id="sort-select">
+                                <option value="relevance">Relevance</option>
+                                <option value="price-low">Price -- Low to High</option>
+                                <option value="price-high">Price -- High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="dynamic-product-grid" id="product-grid">
+                        <!-- Products will be injected here via JS -->
+                    </div>
+                    <div id="no-results" class="no-results hidden">
+                        <i class="fas fa-search"></i>
+                        <h3>Sorry, no results found!</h3>
+                        <p>Please check the spelling or try searching for something else</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" style="max-width: 1248px; margin: 40px auto; padding: 20px; background: var(--bg-white); border-radius: 4px; box-shadow: var(--shadow-light);">
+            <h2 style="margin-bottom: 15px;">About YourKart</h2>
+            <p style="color: var(--text-muted); line-height: 1.6;">YourKart is your premium online bookstore destination. We offer a vast selection of fiction, non-fiction, academic, and self-help books at the best prices. Our mission is to foster a love for reading by providing easy access to books from all over the world.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="max-width: 1248px; margin: 40px auto; padding: 20px; background: var(--bg-white); border-radius: 4px; box-shadow: var(--shadow-light);">
+            <h2 style="margin-bottom: 15px;">Contact Us</h2>
+            <p style="color: var(--text-muted); line-height: 1.6;">Have questions? We'd love to hear from you!</p>
+            <form style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px; max-width: 500px;">
+                <input type="text" placeholder="Your Name" style="padding: 10px; border: 1px solid var(--border-color); border-radius: 2px;">
+                <input type="email" placeholder="Your Email" style="padding: 10px; border: 1px solid var(--border-color); border-radius: 2px;">
+                <textarea placeholder="Your Message" rows="4" style="padding: 10px; border: 1px solid var(--border-color); border-radius: 2px;"></textarea>
+                <button type="button" class="shop-now-btn" style="width: max-content;">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>About</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">YourKart Stories</a>
+                <a href="#">Corporate Information</a>
+            </div>
+            <div class="footer-section">
+                <h4>Help</h4>
+                <a href="#">Payments</a>
+                <a href="#">Shipping</a>
+                <a href="#">Cancellation & Returns</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Consumer Policy</h4>
+                <a href="#">Return Policy</a>
+                <a href="#">Terms Of Use</a>
+                <a href="#">Security</a>
+                <a href="#">Privacy</a>
+            </div>
+            <div class="footer-section">
+                <h4>Social</h4>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="footer-section border-left">
+                <h4>Mail Us:</h4>
+                <p>YourKart Internet Private Limited,<br>
+                Buildings Alyssa, Begonia &<br>
+                Clove Embassy Tech Village,<br>
+                Outer Ring Road, Devarabeesanahalli Village,<br>
+                Bengaluru, 560103,<br>
+                Karnataka, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="badges">
+                <span><i class="fas fa-briefcase"></i> Become a Seller</span>
+                <span><i class="fas fa-star"></i> Advertise</span>
+                <span><i class="fas fa-gift"></i> Gift Cards</span>
+                <span><i class="fas fa-question-circle"></i> Help Center</span>
+            </div>
+            <p>&copy; 2007-2026 YourKart.com</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+                <i class="fab fa-cc-discover"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal-overlay hidden">
+        <div class="cart-modal-content">
+            <div class="cart-header">
+                <h2>Your Cart (<span id="modal-cart-count">0</span> items)</h2>
+                <button id="close-cart" class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-body">
+                <div id="cart-items-container">
+                    <!-- Cart items will be dynamically injected here -->
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total-row">
+                    <span>Total Amount:</span>
+                    <span class="cart-total-price" id="cart-total-price">₹0</span>
+                </div>
+                <!-- Dummy Checkout Button Container -->
+                <button id="dummy-checkout-btn" class="shop-now-btn" style="width: 100%; margin-top: 15px; background: #388e3c; color: white; display: none;">
+                    Proceed to Checkout (Dummy)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
